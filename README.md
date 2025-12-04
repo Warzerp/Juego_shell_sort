@@ -4,8 +4,7 @@
 > **USUARIO:** GINGER.SYS  
 > **OBJETIVO:** INICIAR PROTOCOLO DE JUSTICIA
 
-![Banner del Juego](
-<img width="1319" height="591" alt="menu_muestra" src="https://github.com/user-attachments/assets/b49f66e4-bf0f-4b32-bd3b-5dabce7c3f55" />)
+![Banner del Juego](https://postimg.cc/F7PVvPsj)
 
 ## 🖥️ Descripción del Proyecto
 
