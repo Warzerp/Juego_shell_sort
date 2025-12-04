@@ -65,4 +65,6 @@ No se requiere instalación de dependencias (Node.js, Python, etc.). Es un proye
     * Haz doble clic en el archivo `index.html`.
     * *(Opcional)* Para una mejor experiencia con el audio, se recomienda usar una extensión como "Live Server" en VS Code para evitar bloqueos de autoplay del navegador.
 
-## 📂 Estructura de Archivos
+
+
+
