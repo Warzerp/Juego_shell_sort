@@ -61,7 +61,7 @@ No se requiere instalación de dependencias (Node.js, Python, etc.). Es un proye
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone [https://github.com/TU_USUARIO/ginger-shell-sort.git](https://github.com/TU_USUARIO/ginger-shell-sort.git)
+    git clone https://github.com/Warzerp/Juego_shell_sort
     ```
 2.  **Abrir el juego:**
     * Navega a la carpeta del proyecto.
