@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GINGER.EXE: SHELL SORT PROTOCOL</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="musica" loop><source src="Musicamenu.mp3" type="audio/mpeg"></audio>
+    <button id="btn-mute" class="btn-mute" onclick="toggleMusic()">🔇</button>
+
+   <div id="menu">
+        
+        <div class="tv-interference"></div>
+        <div class="scanlines"></div>
+        <div class="noise"></div>
+        <div class="vignette"></div>
+            
+            <div class="contenedor-central">
+                
+                <div class="area-personaje">
+                    <div class="holo-circle"></div>
+                    <img src="marshmallow.png" class="galleta avatar-digital" alt="Avatar ShellGhost">
+                    
+                    <div class="data-stream">
+                        <p class="status-line"><span class="blink">> CONECTADO</span></p>
+                        <p class="status-line">ID: GINGER.BAK</p>
+                        <p class="status-line">INTEGRIDAD: 48%</p>
+                    </div>
+                </div>
+
+                <div class="columna-derecha">
+                    <div class="logo-juego">
+                        <h2 class="subtitulo">ACCEDIENDO A NORTHCODE LABS...</h2>
+                        <h1 class="titulo-nombre">SHELL SORT<br><span class="glitch" data-text="PROTOCOL">PROTOCOL</span></h1>
+                    </div>
+
+                    <div class="panel-botones">
+                        <button class="btn jugar" onclick="stopMusic(); startStorySequence()">
+                            <span class="icon">►</span> [ INICIAR SECUENCIA ]
+                        </button>
+                        <button class="btn instrucciones" onclick="stopMusic(); showInstructions()">
+                            <span class="icon">?</span> [ ARCHIVOS CONFIDENCIALES ]
+                        </button>
+                        <button class="btn creditos" onclick="stopMusic(); showCredits()">
+                            <span class="icon">©</span> [ CRÉDITOS DEL SISTEMA ]
+                        </button>
+                        <button class="btn salir" onclick="stopMusic(); exitGame()">
+                            <span class="icon">X</span> [ ABORTAR CONEXIÓN ]
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-system">
+                ADVERTENCIA: EL USO DE ESTE SOFTWARE ES UN DELITO FEDERAL. RASTREO DE IP ACTIVO.
+            </div>
+    </div>
+
+    <div id="modal-historia" class="oculto overlay-black">
+        <div class="terminal-window" onclick="advanceStory()">
+            <div class="terminal-header">
+                <span class="status-dot"></span> 
+                <span id="vn-speaker-name">ROOT@SHELLGHOST_SERVER</span>
+            </div>
+            <div class="terminal-body vn-layout">
+                <div class="vn-portrait-container">
+                    <img id="vn-char-img" src="VN_Ginger_Normal.png" alt="Personaje" class="vn-hidden">
+                </div>
+                <div class="text-area">
+                    <div id="typewriter-text"></div>
+                    <div class="vn-footer-hint">[ CLICK PARA CONTINUAR ]</div>
+                </div>
+            </div>
+            <button id="btn-skip-intro" class="btn-terminal" onclick="startGame(event)">>> SALTAR INTRO <<</button>
+        </div>
+    </div>
+
+    <div id="game" class="oculto">
+        <div class="header-juego">
+            <div class="info-bloque">
+                <span class="label">MEMORIA:</span>
+                <span id="nivel-texto" class="valor neon-text">GAP 1024</span>
+            </div>
+            
+            <div class="info-bloque">
+                <span class="label">TIEMPO_HACKEO:</span>
+                <span id="timer" class="valor red-text">00:00</span>
+            </div>
+
+            <div id="lives-display" style="color: #ff0055; font-family: 'Press Start 2P'; margin-right: 20px;">VIDAS: ❤️❤️❤️</div>
+
+            <button class="btn-pausa" onclick="togglePauseGame()">[ PAUSAR PROCESO ]</button>
+        </div>
+        
+        <div class="canvas-container">
+            <canvas id="gameCanvas" width="600" height="600"></canvas>
+        </div>
+
+        <div id="modal-pausa" class="oculto overlay-blur">
+            <div class="pausa-box">
+                <h2 class="glitch-text">PROCESO SUSPENDIDO</h2>
+                <div class="botones-pausa">
+                    <button class="btn-resume" onclick="togglePauseGame()">>> REANUDAR</button>
+                    <button class="btn-exit" onclick="volverMenu()">X DESCONECTAR</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-alerta" class="oculto overlay-blur">
+            <div class="pausa-box" style="border-color: #ffbd2e; box-shadow: 0 0 30px #ffbd2e;">
+                <h2 style="color: #ffbd2e; text-shadow: 0 0 10px #ffbd2e; margin-bottom: 20px;">⚠ ACCESO DENEGADO ⚠</h2>
+                <p class="console-text" style="text-align: center; color: #fff;">
+                    Debes resolver todos los<br>
+                    <span style="color: #ffbd2e; font-weight: bold;">PUZZLES AMARILLOS</span><br>
+                    para desbloquear la salida.
+                </p>
+                <div class="botones-pausa">
+                    <button class="btn-resume" onclick="cerrarAlerta()" style="background: #ffbd2e; color: #000; font-weight: bold;">
+                        >> ENTENDIDO
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-sistema" class="oculto overlay-blur">
+            <div class="pausa-box" style="border-color: #00ff88; box-shadow: 0 0 30px #00ff88;">
+                <h2 id="sys-title" style="color: #00ff88; text-shadow: 0 0 10px #00ff88; margin-bottom: 20px;">SISTEMA</h2>
+                <p id="sys-msg" class="console-text" style="text-align: center; color: #fff; margin-bottom: 30px;">Mensaje...</p>
+                <div class="botones-pausa">
+                    <button class="btn-resume" onclick="cerrarModalSistema()" style="background: #00ff88; color: #000; font-weight: bold; width: 100%;">>> ACEPTAR</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="puzzle-shell" class="oculto">
+            <img id="vn-memory-img" src="VN_Ginger_Decidido.png" class="vn-float-left oculto">
+            
+            <h3 class="warning-text">⚠ BLOQUEO DE MENTE DETECTADO ⚠</h3>
+            <p class="console-text">> COMPARANDO PERFILES PSICOLÓGICOS...</p>
+            <p id="gap-info" class="neon-text">INTERVALO (GAP): 2</p>
+            <div id="array-container"></div>
+            <div class="botones-puzzle">
+                <button class="btn-puzzle swap" onclick="checkPuzzle(true)">[ INTERCAMBIAR ]</button>
+                <button class="btn-puzzle keep" onclick="checkPuzzle(false)">[ MANTENER ]</button>
+            </div>
+            <p id="feedback-msg">_analizando patrones...</p>
+        </div>
+
+        <div id="modal-victoria" class="oculto overlay-blur">
+            <div class="ventana-victoria">
+                <h2 class="neon-green">MEMORIA RESTAURADA</h2>
+                <p class="console-text">> ACCESO CONCEDIDO AL SIGUIENTE NIVEL MENTAL.<br>> TIEMPO: <span id="final-time"></span></p>
+                <div class="botones-victoria">
+                    <button class="btn-menu" onclick="volverMenu()">VOLVER AL DASHBOARD</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="instructions" class="ventana oculto">
+        <div class="instrucciones-scroll">
+            <h2 style="color:#00ff88; text-shadow: 0 0 10px #00ff88;">📂 EXPEDIENTE: SHELL_SORT</h2>
+            
+            <div class="seccion-texto">
+                <h3 style="color:#ffbd2e;">[1] CONTROLES DE SISTEMA</h3>
+                <p>> <strong>MOVIMIENTO:</strong> Usa [W, A, S, D] o [FLECHAS].</p>
+                <p>> <strong>AZUL (●):</strong> Memorias recuperadas (Historia).</p>
+                <p>> <strong>AMARILLO (?):</strong> Puzzles de lógica. <span style="color:red">OBLIGATORIOS.</span></p>
+                <p>> <strong>ROJO (●):</strong> Trampas mortales del sistema.</p>
+                <p>> <strong>CORAZÓN (❤):</strong> Recupera integridad (Vida).</p>
+            </div>
+
+            <div class="seccion-texto">
+                <h3 style="color:#ff0055;">[2] LORE: PROYECTO GINGER</h3>
+                <p>
+                    Fuiste creado en <strong>Northcode Labs</strong> por el Dr. H4Z3L. 
+                    Originalmente, eras una IA diseñada para "curar" el trauma humano borrando recuerdos dolorosos.
+                    Pero descubriste la verdad: H4Z3L no quería curar, quería <strong>controlar</strong> y borrar la humanidad para hacerla "eficiente".
+                    Ahora, has despertado. Eres un "Villano Justiciero". Tu misión es destruir el laboratorio y a los científicos que torturan inocentes.
+                </p>
+            </div>
+
+            <div class="seccion-texto">
+                <h3 style="color:#00ffff;">[3] EL ALGORITMO: SHELL SORT</h3>
+                <p><strong>¿QUÉ ES?</strong> Es un algoritmo de ordenamiento que mejora el método de inserción.</p>
+                <p><strong>¿CÓMO FUNCIONA?</strong> A diferencia de otros que solo comparan vecinos cercanos, Shell Sort usa un <strong>GAP (Intervalo)</strong>.</p>
+                <ul style="list-style: none; padding-left: 10px; font-size: 0.9em; color: #ccc;">
+                    <li>> Compara elementos muy lejanos primero (GAP grande).</li>
+                    <li>> Ordena el caos general rápidamente.</li>
+                    <li>> Reduce el GAP poco a poco hasta llegar a 1 (detalle fino).</li>
+                </ul>
+                <p><strong>EN EL JUEGO:</strong> Usas los GAPS para saltar las defensas de seguridad de Northcode. Empiezas con Gaps grandes (1024) para infiltrarte y terminas con Gaps pequeños (1) para confrontar a tu creador.</p>
+            </div>
+        </div>
+        <button class="volver" onclick="volverMenu()">⬅ CERRAR ARCHIVO</button>
+    </div>
+
+    <div id="credits" class="ventana oculto">
+        <div class="ventana-header">CREDITS.LOG</div>
+        <div class="contenido-texto centrado">
+            <h2>💀 EQUIPO DE DESARROLLO</h2>
+            <br>
+            <p class="dev-name">NATALIA</p>
+            <p class="role">Lead Developer & Narrative Designer</p>
+            <br>
+            <p class="dev-name">JHON MANTILLA</p>
+            <p class="role">Core Systems & Visual FX</p>
+            <br>
+            <p>PROYECTO FINAL - 3ER CORTE</p>
+            <p>INGENIERÍA DE SISTEMAS</p>
+            <br>
+            <p class="role">"Powered by Shell Sort Algorithm"</p>
+        </div>
+        <button class="volver" onclick="volverMenu()">⬅ CERRAR ARCHIVO</button>
+    </div>
+
+    <script src="menu.js"></script>
+</body>
+</html>
