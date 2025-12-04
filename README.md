@@ -3,9 +3,7 @@
 > **ESTADO DEL SISTEMA:** [CONECTADO]  
 > **USUARIO:** GINGER.SYS  
 > **OBJETIVO:** INICIAR PROTOCOLO DE JUSTICIA
-
-https://github.com/Warzerp/Juego_shell_sort/blob/main/src/menu_muestra.PNG
-
+![Menu](https://github.com/Warzerp/Juego_shell_sort/blob/main/src/menu_muestra.PNG)
 ## 🖥️ Descripción del Proyecto
 
 **GINGER.EXE** es un videojuego web que combina el género de **Puzzle**, **Aventura RPG** y **Novela Visual**. Desarrollado como proyecto final de Ingeniería de Sistemas, este juego gamifica el funcionamiento del algoritmo de ordenamiento **Shell Sort**.
