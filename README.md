@@ -4,7 +4,7 @@
 > **USUARIO:** GINGER.SYS  
 > **OBJETIVO:** INICIAR PROTOCOLO DE JUSTICIA
 
-[![Banner del Juego]](https://github.com/Warzerp/Juego_shell_sort/blob/main/src/menu_muestra.PNG)
+https://github.com/Warzerp/Juego_shell_sort/blob/main/src/menu_muestra.PNG
 
 ## 🖥️ Descripción del Proyecto
 
