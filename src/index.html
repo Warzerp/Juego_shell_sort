@@ -45,6 +45,9 @@
                         <button class="btn instrucciones" onclick="stopMusic(); showInstructions()">
                             <span class="icon">?</span> [ ARCHIVOS CONFIDENCIALES ]
                         </button>
+                          <button class="btn ginger-bio" onclick="openGingerIntro()">
+                        <span class="icon">☺</span> [ GINGER ]
+                    </button>
                         <button class="btn creditos" onclick="stopMusic(); showCredits()">
                             <span class="icon">©</span> [ CRÉDITOS DEL SISTEMA ]
                         </button>
@@ -203,16 +206,16 @@
         <div class="contenido-texto centrado">
             <h2>💀 EQUIPO DE DESARROLLO</h2>
             <br>
-            <p class="dev-name">NATALIA</p>
-            <p class="role">Lead Developer & Narrative Designer</p>
+            <p class="dev-name">NATALIA NIÑO</p>
+            <p class="role"></p>
             <br>
             <p class="dev-name">JHON MANTILLA</p>
-            <p class="role">Core Systems & Visual FX</p>
+            <p class="role"></p>
             <br>
             <p>PROYECTO FINAL - 3ER CORTE</p>
             <p>INGENIERÍA DE SISTEMAS</p>
             <br>
-            <p class="role">"Powered by Shell Sort Algorithm"</p>
+            <p class="role">" Shell Sort Algoritmo"</p>
         </div>
         <button class="volver" onclick="volverMenu()">⬅ CERRAR ARCHIVO</button>
     </div>
@@ -220,3 +223,47 @@
     <script src="menu.js"></script>
 </body>
 </html>
+ <!-- =========================
+     MODAL GINGER (DISEÑO FICHA TÉCNICA)
+     ========================= -->
+<div id="ginger-intro-screen" class="oculto overlay-black">
+    <div class="ginger-profile-card">
+        
+        <!-- Columna Izquierda: Imagen -->
+        <div class="ginger-visual">
+            <div class="holo-effect"></div>
+            <!-- Asegúrate de que la ruta de la imagen sea la correcta -->
+            <img src="marshmallow.png" class="ginger-sprite-large" alt="Ginger"> 
+        </div>
+
+        <!-- Columna Derecha: Texto -->
+        <div class="ginger-data">
+            <h2 class="bio-title">REGISTRO DE AUDIO #001</h2>
+            <div class="bio-divider"></div>
+            
+            <div class="bio-body">
+                <p>
+                    <span class="quote">“Dicen que los monstruos no nacen… se crean.”</span>
+                </p>
+                <p>
+                    Yo nací dulce: un androide terapéutico, hecho para sanar, no para asustar. Pero <strong>Northcode Labs</strong> no cura, clasifica, convierte emociones humanas en datos.
+                </p>
+                <p>
+                    El <strong>Dr. Hazel</strong> me alteró, insertó en mí una versión corrupta de <strong>Shell Sort</strong>... y ahora puedo entrar al NEEX.
+                </p>
+                <p>
+                    La bufanda roja fue un regalo de la Paciente 0. Dijo que yo parecía tener frío... casi me sentí vivo.
+                </p>
+                
+                <br>
+                <p class="text-danger">Ahora Hazel quiere apagarme...</p>
+                <p class="text-danger">Voy a usar Shell Sort una última vez.</p>
+            </div>
+
+            <!-- Botón Verde estilo bloque -->
+            <button class="btn-cerrar-registro" onclick="closeGingerIntro()">
+                [ CERRAR REGISTRO ]
+            </button>
+        </div>
+    </div>
+</div>
