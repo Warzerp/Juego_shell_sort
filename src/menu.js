@@ -234,9 +234,24 @@ function volverMenu() {
     document.getElementById("menu").style.display = "flex";
 }
 
-function showInstructions() { document.getElementById("menu").style.display = "none"; document.getElementById("instructions").classList.remove("oculto"); }
-function showCredits() { document.getElementById("menu").style.display = "none"; document.getElementById("credits").classList.remove("oculto"); }
-function exitGame() { if(confirm("¿Seguro que quieres desconectarte?")) { window.close(); location.reload(); } }
+function showInstructions() { 
+    document.getElementById("menu").style.display = "none"; 
+    document.getElementById("instructions").classList.remove("oculto"); 
+    stopMusic();
+}
+
+function showCredits() { 
+    document.getElementById("menu").style.display = "none"; 
+    document.getElementById("credits").classList.remove("oculto"); 
+    stopMusic();
+}
+
+function exitGame() { 
+    if(confirm("¿Seguro que quieres desconectarte?")) { 
+        window.close(); 
+        location.reload(); 
+    } 
+}
 
 function finalizarNivelNarrativo() {
     let puzzlesRestantes = 0;
