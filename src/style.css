@@ -336,29 +336,42 @@ canvas {
    ========================================= */
 .oculto { display: none !important; }
 
-/* Contenedor: ocupa toda la pantalla pero no bloquea interacciones fuera del panel */
+/* Contenedor centrador (asegúrate de tener esto) */
 #modal-victoria {
   position: fixed;
-  inset: 0;                      /* top:0; right:0; bottom:0; left:0; */
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;          /* permite clicks en el juego fuera del panel */
-  z-index: 1500;                 /* encima del canvas */
+  pointer-events: none;
+  padding: 16px;    /* evita que el panel toque los bordes en pantallas pequeñas */
+  z-index: 1500;
 }
+#modal-victoria .ventana-victoria { pointer-events: auto; }
 
 /* Panel rectangular centrado (tu .ventana-victoria) */
 .ventana-victoria {
-  pointer-events: auto;          /* habilita interacción dentro del panel */
+  pointer-events: auto;
   background: #0d1117;
   border: 2px solid var(--neon-green);
   color: var(--neon-green);
-  padding: 40px;
-  width: 600px;
-  max-width: 90%;
+  padding: clamp(16px, 4vw, 40px);        /* padding responsivo */
+  width: clamp(280px, 60vw, 600px);       /* se adapta entre 280px y 600px */
+  max-width: 95%;
+  box-sizing: border-box;
   text-align: center;
   box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
-  border-radius: 6px;
+  border-radius: 8px;
+  transform: translateZ(0);               /* mejora render en móviles */
+}
+/* Titular y texto responsivo */
+.ventana-victoria h2 {
+  font-size: clamp(1rem, 3.2vw, 1.5rem);
+  margin-bottom: 12px;
+}
+.ventana-victoria .console-text {
+  font-size: clamp(0.75rem, 2.2vw, 1rem);
+  line-height: 1.3;
 }
 
 /* Ocultar/mostrar */
@@ -414,3 +427,8 @@ canvas {
 @keyframes noiseScroll { 0% { background-position: 0 0; filter: hue-rotate(0deg); } 100% { background-position: 0 100px; filter: hue-rotate(360deg); } }
 
 @keyframes breathing { 0% { filter: drop-shadow(0 0 10px #00ffff) saturate(1.5); } 50% { filter: drop-shadow(0 0 25px #00ffff) saturate(1.8) brightness(1.1); } 100% { filter: drop-shadow(0 0 10px #00ffff) saturate(1.5); } }
+
+@media (max-width: 420px) {
+  .ventana-victoria { border-radius: 6px; }
+  .ventana-victoria .botones-victoria { margin-top: 10px; }
+}
