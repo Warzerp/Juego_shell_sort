@@ -12,51 +12,50 @@
     <audio id="musica" loop><source src="Musicamenu.mp3" type="audio/mpeg"></audio>
     <button id="btn-mute" class="btn-mute" onclick="toggleMusic()">🔇</button>
 
-   <div id="menu">
-        
+    <div id="menu">
         <div class="tv-interference"></div>
         <div class="scanlines"></div>
         <div class="noise"></div>
         <div class="vignette"></div>
             
-            <div class="contenedor-central">
+        <div class="contenedor-central">
+            <div class="area-personaje">
+                <div class="holo-circle"></div>
+                <img src="marshmallow.png" class="galleta avatar-digital" alt="Avatar ShellGhost">
                 
-                <div class="area-personaje">
-                    <div class="holo-circle"></div>
-                    <img src="marshmallow.png" class="galleta avatar-digital" alt="Avatar ShellGhost">
-                    
-                    <div class="data-stream">
-                        <p class="status-line"><span class="blink">> CONECTADO</span></p>
-                        <p class="status-line">ID: GINGER.BAK</p>
-                        <p class="status-line">INTEGRIDAD: 48%</p>
-                    </div>
-                </div>
-
-                <div class="columna-derecha">
-                    <div class="logo-juego">
-                        <h2 class="subtitulo">ACCEDIENDO A NORTHCODE LABS...</h2>
-                        <h1 class="titulo-nombre">SHELL SORT<br><span class="glitch" data-text="PROTOCOL">PROTOCOL</span></h1>
-                    </div>
-
-                    <div class="panel-botones">
-                        <button class="btn jugar" onclick="stopMusic(); startStorySequence()">
-                            <span class="icon">►</span> [ INICIAR SECUENCIA ]
-                        </button>
-                        <button class="btn instrucciones" onclick="stopMusic(); showInstructions()">
-                            <span class="icon">?</span> [ ARCHIVOS CONFIDENCIALES ]
-                        </button>
-                        <button class="btn creditos" onclick="stopMusic(); showCredits()">
-                            <span class="icon">©</span> [ CRÉDITOS DEL SISTEMA ]
-                        </button>
-                        <button class="btn salir" onclick="stopMusic(); exitGame()">
-                            <span class="icon">X</span> [ ABORTAR CONEXIÓN ]
-                        </button>
-                    </div>
+                <div class="data-stream">
+                    <p class="status-line"><span class="blink">> CONECTADO</span></p>
+                    <p class="status-line">ID: GINGER.BAK</p>
+                    <p class="status-line">INTEGRIDAD: 48%</p>
                 </div>
             </div>
-            <div class="footer-system">
-                ADVERTENCIA: EL USO DE ESTE SOFTWARE ES UN DELITO FEDERAL. RASTREO DE IP ACTIVO.
+
+            <div class="columna-derecha">
+                <div class="logo-juego">
+                    <h2 class="subtitulo">ACCEDIENDO A NORTHCODE LABS...</h2>
+                    <h1 class="titulo-nombre">SHELL SORT<br><span class="glitch" data-text="PROTOCOL">PROTOCOL</span></h1>
+                </div>
+
+                <div class="panel-botones">
+                    <button class="btn jugar" onclick="startStorySequence()">
+                        <span class="icon">▶</span> [ INICIAR SECUENCIA ]
+                    </button>
+                    <button class="btn instrucciones" onclick="showInstructions()">
+                        <span class="icon">?</span> [ ARCHIVOS CONFIDENCIALES ]
+                    </button>
+                    <button class="btn creditos" onclick="showCredits()">
+                        <span class="icon">©</span> [ CRÉDITOS DEL SISTEMA ]
+                    </button>
+                    <button class="btn salir" onclick="exitGame()">
+                        <span class="icon">X</span> [ ABORTAR CONEXIÓN ]
+                    </button>
+                </div>
             </div>
+        </div>
+        
+        <div class="footer-system">
+            ADVERTENCIA: EL USO DE ESTE SOFTWARE ES UN DELITO FEDERAL. RASTREO DE IP ACTIVO.
+        </div>
     </div>
 
     <div id="modal-historia" class="oculto overlay-black">
@@ -148,16 +147,17 @@
             </div>
             <p id="feedback-msg">_analizando patrones...</p>
         </div>
-<!-- Panel rectangular centrado; clase 'oculto' controla visibilidad -->
-<div id="modal-victoria" class="oculto">
-  <div class="ventana-victoria">
-    <h2 class="neon-green">MEMORIA RESTAURADA</h2>
-    <p class="console-text">> ACCESO CONCEDIDO AL SIGUIENTE NIVEL MENTAL.<br>> TIEMPO: <span id="final-time"></span></p>
-    <div class="botones-victoria">
-      <button class="btn-menu" id="lc-continue">VOLVER AL DASHBOARD</button>
+
+        <div id="modal-victoria" class="oculto">
+            <div class="ventana-victoria">
+                <h2 class="neon-green">MEMORIA RESTAURADA</h2>
+                <p class="console-text">> ACCESO CONCEDIDO AL SIGUIENTE NIVEL MENTAL.<br>> TIEMPO: <span id="final-time"></span></p>
+                <div class="botones-victoria">
+                    <button class="btn-menu" id="lc-continue">VOLVER AL DASHBOARD</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
     <div id="instructions" class="ventana oculto">
         <div class="instrucciones-scroll">
@@ -169,7 +169,7 @@
                 <p>> <strong>AZUL (●):</strong> Memorias recuperadas (Historia).</p>
                 <p>> <strong>AMARILLO (?):</strong> Puzzles de lógica. <span style="color:red">OBLIGATORIOS.</span></p>
                 <p>> <strong>ROJO (●):</strong> Trampas mortales del sistema.</p>
-                <p>> <strong>CORAZÓN (❤):</strong> Recupera integridad (Vida).</p>
+                <p>> <strong>CORAZÓN (♥):</strong> Recupera integridad (Vida).</p>
             </div>
 
             <div class="seccion-texto">
