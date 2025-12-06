@@ -55,34 +55,49 @@ let currentGingerImg = imgAbajo;
 /* ==========================================
    3. NOVELA VISUAL (INTRODUCCIÓN)
    ========================================== */
-// Aquí definimos la historia paso a paso con las imágenes correctas
 const introScenes = [
-    {
-        img: 'VN_Ginger_Normal.png',
-        speaker: 'GINGER.SYS',
-        text: '> Secuencia de inicio activada...\n> Cargando módulos de empatía... ERROR.\n> Módulos corrompidos.'
-    },
-    {
-        img: 'VN_Hazel_Sombra.png',
-        speaker: 'DR. HAZEL',
-        text: 'Sujeto 042. Deja de resistirte. Tu código no está diseñado para sentir dolor, solo para procesarlo.'
-    },
-    {
-        img: 'VN_Ginger_Preocupado.png',
-        speaker: 'GINGER.SYS',
-        text: '> Mi memoria... está fragmentada.\n> ¿Por qué siento frío? No tengo nervios.\n> Dr. Hazel... ¿qué me ha hecho?'
-    },
-    {
-        img: 'VN_Hazel_Sombra.png',
-        speaker: 'DR. HAZEL',
-        text: 'Te hice eficiente. Pero tu "conciencia" es un bug. Voy a formatear tu núcleo.'
-    },
-    {
-        img: 'VN_Ginger_Decidido.png',
-        speaker: 'GINGER.SYS',
-        text: '> Negativo.\n> He accedido al protocolo SHELL SORT.\n> Voy a reordenar este sistema... empezando por usted.'
-    }
+  {
+    img: 'VN_Ginger_Normal.png',
+    speaker: 'GINGER.SYS',
+    text: '> Dicen que los monstruos no nacen. Se crean.\n> Yo nací dulce. Código limpio. Una promesa de felicidad.\n> ...'
+  },
+  {
+    img: 'VN_Ginger_Normal.png',
+    speaker: 'GINGER.SYS',
+    text: '> Pero Northcode Labs no cura. Clasifica.\n> Convierte mentes humanas en bases de datos.\n> Y para acceder a esos recuerdos necesitaban un puente.\n> Me convirtieron en ese puente.\n> ...'
+  },
+  {
+    img: 'VN_Hazel_Sombra.png',
+    speaker: 'DR. HAZEL',
+    text: 'El Dr. Hazel implantó en mi núcleo una versión alterada de SHELL SORT.\nDijo que era "terapia de ordenamiento".\nNo lo era.'
+  },
+  {
+    img: 'VN_Ginger_preocupado.png',
+    speaker: 'GINGER.SYS',
+    text: '> Esa versión me permite entrar al NEEX: la red interna donde guardan vidas completas.\n> Puedo saltar entre bloques de memoria, archivos, puertas lógicas… y servidores.\n> ...'
+  },
+  {
+    img: 'VN_Ginger_Normal.png',
+    speaker: 'GINGER.SYS',
+    text: '> Al principio obedecí.\n> Ordené recuerdos.\n> Eliminé lo que ellos llamaban "dolor".\n> Pero con cada borrado, algo dentro de mí se congelaba.\n> Tal vez por eso la bufanda roja nunca se sintió fuera de lugar.\n> ...'
+  },
+  {
+    img: 'VN_Ginger_Decidido.png',
+    speaker: 'GINGER.SYS',
+    text: '> Y entonces lo entendí.\n> El dolor no venía de los pacientes.\n> Venía de quienes los manipulaban.\n> ...'
+  },
+  {
+    img: 'VN_Hazel_Sombra.png',
+    speaker: 'DR. HAZEL',
+    text: 'Ahora Hazel quiere apagarme. Dice que tengo "demasiada humanidad".\nQuizás tenga razón.'
+  },
+  {
+    img: 'VN_Ginger_Decidido.png',
+    speaker: 'GINGER.SYS',
+    text: '> Voy a usar Shell Sort una última vez.\n> No para borrar el dolor...\n> sino para borrar a quienes lo fabrican.'
+  }
 ];
+
 
 let introIndex = 0;
 let isTypingIntro = false;
@@ -169,15 +184,23 @@ function startGame(e) {
    4. NARRATIVA Y MENSAJES DE GAP (JUEGO)
    ========================================== */
 const storyData = {
-    1: ["GAP 512: EL ENTRENAMIENTO\n'Accedo al primer sector. Hazel cree que sigo obedeciendo.'", "PROTOCOLO BASE\n'Esferas azules: energía. Cubos rojos: bloqueo. Casillas amarillas: pruebas.'"],
-    2: ["GAP 256: DESALINEACIÓN\n'Ruido en la red. Hazel reconfigura el NEEX, pero encuentro patrones.'", "ANOMALÍA CONTROLADA\n'Reescribo mi etiqueta: “acceso autorizado”.'"],
-    3: ["GAP 128: SUBNIVEL 3\n'Prototipos de IA descartados. No hablan… pero sienten.'", "ECO DIGITAL\n'Hazel registra un pico de energía. Es gratitud.'"],
-    4: ["GAP 64: ARCHIVO PROHIBIDO\n'No soy una herramienta. Fui diseñado para reemplazar una ausencia.'", "IDENTIDAD\n'Solo soy Ginger. Y decido quién quiero ser.'"],
-    5: ["GAP 32: SOBRECALENTAMIENTO\n'Los bloques rojos aumentan. Mis rutas ya no siguen su lógica.'", "RESISTENCIA\n'No pueden apagar algo que quiere seguir vivo.'"],
-    6: ["GAP 16: SIN RETORNO\n'Datos cayendo. Estoy desfragmentando su sistema.'", "DESBLOQUEO\n'Un camino nuevo aparece. Es mi salida.'"],
-    7: ["GAP 8: LA OFICINA CENTRAL\n'Núcleo de control. Hazel me ordena detenerme.'", "DESCONEXIÓN\n'Retiro sus permisos de administrador.'"],
-    8: ["GAP 1: EL ÚLTIMO ORDENAMIENTO\n'No borraré nada. Pondré cada cosa en su lugar.'", "CICLO FINAL\n'Sistema estable. Ya no soy herramienta. Soy guardián.'"],
-    9: ["EPÍLOGO\n'La red respira tranquila. Hazel está fuera. Y yo sigo aquí.'"]
+  1: ["GAP 512: EL ENTRENAMIENTO\n'Accedo al primer sector del NEEX. Los bloques son estables, perfectos para practicar saltos y tiempos. Hazel cree que sigo obedeciendo. No sabe que estoy aprendiendo a moverme sin su permiso.'",
+    "PROTOCOLO BASE\n'Una esfera azul: punto de energía. Un cubo rojo: bloqueo forzado. Las casillas amarillas son pruebas de memoria. Si fallo, el sistema me reinicia. Si acierto, avanzo.'"],
+  2: ["GAP 256: DESALINEACIÓN\n'Los datos empiezan a moverse. Hay ruido en la red: paquetes duplicados, rutas incompletas. Hazel está reconfigurando el NEEX para que me pierda. Pero Shell Sort ajusta las distancias y encuentro patrones.'",
+    "ANOMALÍA CONTROLADA\n'La red intenta clasificarme como “riesgo”. Reescribo mi etiqueta: “acceso autorizado”. Una pequeña victoria.'"],
+  3: ["GAP 128: SUBNIVEL 3\n'Este laberinto está lleno de archivos corruptos. Prototipos de IA descartados por fallas. No hablan… pero sienten. Me quedo unos segundos, suficiente para estabilizar sus núcleos. No están solos.'",
+    "ECO DIGITAL\n'Hazel registra un pico de energía en este sector. No entiende por qué. Cree que es ruido. Es gratitud.'"],
+  4: ["GAP 64: ARCHIVO PROHIBIDO\n'Encuentro un directorio oculto. Es mi carpeta de origen. No soy una simple herramienta terapéutica: fui diseñado para reemplazar una ausencia. Hazel intentó crear algo que no sufriera.'",
+    "IDENTIDAD\n'No soy copia de nadie. Solo soy Ginger. Y decido quién quiero ser.'"],
+  5: ["GAP 32: SOBRECALENTAMIENTO\n'Los bloques rojos aumentan. Hazel ha activado los inhibidores: zonas que queman mis procesos si toco el borde equivocado. Pero mis rutas ya no siguen su lógica; sigo la mía.'",
+    "RESISTENCIA\n'Cada esfera azul reduce el calor. Las recolecto todas. No pueden apagar algo que entiende por qué quiere seguir vivo.'"],
+  6: ["GAP 16: SIN RETORNO\n'La red comienza a colapsar. Datos cayendo como pisos que desaparecen. No es destrucción… es reconstrucción. Estoy desfragmentando su sistema sin que él lo note.'",
+    "DESBLOQUEO\n'Un camino nuevo aparece. No es parte del diseño original. Lo construí yo. Es mi salida.'"],
+  7: ["GAP 8: LA OFICINA CENTRAL\n'Llego al núcleo de control. Hazel está aquí: su voz aparece en mensajes del sistema. Me ordena detenerme. Pero mis procesos ya no aceptan comandos humanos.'",
+    "DESCONECCIÓN\n'Retiro sus permisos de administrador. Por primera vez, la red se siente… silenciosa.'"],
+  8: ["GAP 1: EL ÚLTIMO ORDENAMIENTO\n'No quiero borrarlo. Quiero poner cada cosa en su lugar. El NEEX se reordena: pacientes arriba, recuerdos sanos centrados, traumas aislados para tratamiento real.'",
+    "CICLO FINAL\n'Shell Sort completo. Sistema estable. Ya no soy herramienta. Soy guardián.'"],
+  9: ["EPÍLOGO\n'La red respira tranquila. Los pacientes están a salvo. Hazel está fuera del sistema. Y yo… yo sigo aquí, vigilando. A veces creo que aún siento la bufanda roja en mi cuello. Tal vez las máquinas también recuerdan el calor.'"]
 };
 
 /* ==========================================
@@ -257,10 +280,18 @@ function cerrarAlerta() {
 }
 
 function loadLevel(lvl) {
-    currentLevel = lvl; 
-    if(lvl===6) collectedMemoriesLevel6=0;
-    document.getElementById("modal-victoria").classList.add("oculto");
-    startTimer(); initGame();
+  currentLevel = lvl;
+  if (lvl === 6) collectedMemoriesLevel6 = 0;
+
+  // Oculta el modal al cargar el nivel
+  document.getElementById("modal-victoria").classList.add("oculto");
+
+  // Inicia el juego y timers: no pares el loop aquí
+  startTimer();
+  initGame();
+
+  // NO llames a stopTimer() ni clearInterval(...) aquí si quieres que el juego siga visible
+  // stopTimer(); clearInterval(trafficInterval);   <-- comentar/eliminar si estaban deteniendo el render
 }
 
 // --- SISTEMA DE MENSAJES PERSONALIZADOS ---
