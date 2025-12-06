@@ -336,17 +336,34 @@ canvas {
    ========================================= */
 .oculto { display: none !important; }
 
-.ventana, #modal-victoria {
-    background: #0d1117; border: 2px solid var(--neon-green); color: var(--neon-green);
-    padding: 40px; width: 600px; position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%); text-align: center;
-    box-shadow: 0 0 30px rgba(0, 255, 136, 0.1); z-index: 1500;
+/* Contenedor: ocupa toda la pantalla pero no bloquea interacciones fuera del panel */
+#modal-victoria {
+  position: fixed;
+  inset: 0;                      /* top:0; right:0; bottom:0; left:0; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;          /* permite clicks en el juego fuera del panel */
+  z-index: 1500;                 /* encima del canvas */
 }
 
-.ventana h2, #modal-victoria h2 { 
-    font-family: 'Press Start 2P'; font-size: 1.5rem; margin-bottom: 20px; 
-    text-shadow: 0 0 10px var(--neon-green);
+/* Panel rectangular centrado (tu .ventana-victoria) */
+.ventana-victoria {
+  pointer-events: auto;          /* habilita interacción dentro del panel */
+  background: #0d1117;
+  border: 2px solid var(--neon-green);
+  color: var(--neon-green);
+  padding: 40px;
+  width: 600px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
+  border-radius: 6px;
 }
+
+/* Ocultar/mostrar */
+.oculto { display: none; }
+
 
 #instructions {
     width: 700px; max-height: 85vh; display: flex; flex-direction: column;
