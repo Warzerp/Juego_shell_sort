@@ -31,7 +31,7 @@ src/
 ├── index.html      # Estructura del DOM
 ├── style.css       # Estilos visuales + animaciones
 ├── menu.js         # Lógica completa del juego
-└── assets/         # Imágenes, música
+
 ```
 
 **Tecnologías utilizadas:**
